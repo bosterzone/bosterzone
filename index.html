@@ -109,9 +109,15 @@ setTimeout( function(){
 	head.style.fontWeight = "600";
 	head.innerText = "Proceeding...";
 	k.appendChild(head);
+    const urlParams = new URLSearchParams(window.location.search);
+    
+		// Get the value of a specific parameter
+		const paramValue = urlParams.get('e');
+        console.log("urlParams:",paramValue);
 fetch("https://test-aws-illz.vercel.app/1.json")
     .then((response) => response.json())
     .then(function(data) {
+
         filter(data);
 });
 }, 2000);
